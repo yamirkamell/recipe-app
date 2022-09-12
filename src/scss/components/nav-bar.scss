@@ -1,0 +1,54 @@
+@mixin flexBox ($dis, $direction, $just, $align ) {
+  display: $dis;
+  flex-direction: $direction;
+  justify-content: $just;
+  align-items: $align;
+}
+
+@mixin flexCenterItems ($dis, $align ) {
+  display: $dis;
+  justify-content: $align;
+}
+
+@mixin fontSizeAndColor ($siz, $clr ) {
+  font-size: $siz;
+  color: $clr;
+}
+
+.container-header {
+  @include flexBox( flex, row, space-around, center);
+  flex: 1;
+  background-color: var(--white);
+  height: 69px;
+  box-shadow: 0px 3px 6px #8395A7;
+  opacity: 1;
+
+  .logo-app {
+    @include flexCenterItems( flex, center);
+    flex: .2;
+    span {
+      @include fontSizeAndColor( 40px, var(--dark_blue));
+    }
+    .span-app {
+      @include fontSizeAndColor( 28px, var(--red));
+      font-family: var(--font-poppins);
+    }
+  }
+  .menu {
+    @include flexBox( flex, row, space-around, center);
+    flex: .8;
+    a{
+      @include fontSizeAndColor( 13px, var(--red));
+    }
+    span{
+      @include fontSizeAndColor( 13px, var(--dark_blue));
+      font-family: var(--font-poppins);
+      &:hover{
+        cursor: pointer;
+        color: var(--red);
+      }
+    }
+  }
+  
+}
+

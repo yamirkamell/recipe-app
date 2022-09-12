@@ -2,6 +2,8 @@
 import { useDispatch } from 'react-redux';
 import axios from "axios";
 import { setInitialState } from "../../redux/home/actions";*/
+import FooterContent from "../../components/footer-content/footer-content";
+import NavBar from "../../components/nav-bar/nav-bar";
 
 const Initial = () => {
   /*const dispatch = useDispatch();
@@ -16,9 +18,13 @@ const Initial = () => {
   }, [dispatch]);
 */
   return (
-    <div>
-      <h3>RecipeApp</h3>
-    </div>
+    <>
+      <NavBar />
+      <div>
+        <p>RecipeApp</p>
+      </div>
+      <FooterContent />
+    </>
   );
 };
 

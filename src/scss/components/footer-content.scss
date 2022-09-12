@@ -1,0 +1,69 @@
+@mixin flexBox ($dis, $direction, $just, $align ) {
+  display: $dis;
+  flex-direction: $direction;
+  justify-content: $just;
+  align-items: $align;
+}
+
+@mixin flexCenterItems ($dis, $align ) {
+  display: $dis;
+  justify-content: $align;
+}
+
+@mixin iPad() {
+  @media screen and (max-width: 768px ) {
+    @content;
+  }
+}
+
+@mixin mobile() {
+  @media screen and (max-width: 428px ) {
+    @content;
+  }
+}
+
+.container-footer {
+  @include flexCenterItems( flex, center);
+  position: absolute;
+  bottom: 23px;
+  width: 100%;
+  
+  .container-items{
+    @include flexBox( flex, row, space-evenly, center);
+    @include iPad(){
+      height: 110px; 
+    }
+    @include mobile(){
+      height: 69px; 
+    }
+    background: transparent linear-gradient(180deg, #C2E3F3 0%, #6AA3C1 100%) 0% 0% no-repeat padding-box;
+    box-shadow: 4px 6px 23px #A9A9A911;
+    opacity: 1;
+    height: 160px; 
+    width: 100%;
+    span {
+      font-size: 50px;
+      color: var(--dark_blue);
+      @include iPad(){
+        font-size: 34px;
+      }
+      @include mobile(){
+        font-size: 20px;
+      }
+    }
+    .container-img{
+       display: contents;
+       img {
+        height: 220px;
+        margin-bottom: 14px;
+        @include iPad(){
+          height: 160px;
+        }
+        @include mobile(){
+          height: 105px;
+        }
+      }
+
+    }
+  }
+}

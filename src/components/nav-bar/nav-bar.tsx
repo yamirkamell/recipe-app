@@ -1,7 +1,7 @@
 import '../../scss/components/nav-bar.scss'
+import HomeIcon from '../../assets/icons/ic_home.svg'
 
 const NavBar = () => {
-
   return (
     <div className="container-header">
       <div className="logo-app">
@@ -15,6 +15,9 @@ const NavBar = () => {
         <span>Comida Rápida</span>
         <span>Menú Niños</span>
         <span>Sopas</span>
+      </div>
+      <div className="menu-ipad">
+        <img src={HomeIcon} alt='home-icon' />
       </div>
     </div>
   );

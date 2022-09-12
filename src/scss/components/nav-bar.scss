@@ -15,6 +15,18 @@
   color: $clr;
 }
 
+@mixin iPad() {
+  @media screen and (max-width: 768px ) {
+    @content;
+  }
+}
+
+@mixin mobile() {
+  @media screen and (max-width: 428px ) {
+    @content;
+  }
+}
+
 .container-header {
   @include flexBox( flex, row, space-around, center);
   flex: 1;
@@ -25,7 +37,13 @@
 
   .logo-app {
     @include flexCenterItems( flex, center);
-    flex: .2;
+    flex: .3;
+    @include iPad(){
+      flex: .5;
+    }
+    @include mobile(){
+      flex: .7;
+    }
     span {
       @include fontSizeAndColor( 40px, var(--dark_blue));
     }
@@ -35,8 +53,11 @@
     }
   }
   .menu {
+    @include iPad(){
+      display: none;
+    }
     @include flexBox( flex, row, space-around, center);
-    flex: .8;
+    flex: .7;
     a{
       @include fontSizeAndColor( 13px, var(--red));
     }
@@ -49,6 +70,18 @@
       }
     }
   }
+  .menu-ipad {
+    display: none;
+    @include iPad(){
+      @include flexBox( flex, row, flex-end, center);
+      flex: .5;
+      margin-right: 20px;
+    }
+    @include mobile(){
+      flex: .3;
+    }
+    }
+  
   
 }
 

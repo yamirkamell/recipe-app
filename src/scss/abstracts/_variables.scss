@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,400;1,500&display=swap');
+@font-face {
+  font-family: 'Monster Clubhouse';
+  src: url('../../assets/fonts/Monster\ Clubhouse.ttf') format('truetype');
+}
+
+:root{
+  /*fonts*/
+  --font-poppins: 'Poppins', sans-serif; 
+  --font-monster: 'Monster Clubhouse', sans-serif;
+
+  /*colors*/
+  --white: #FFFFFF;
+  --red: #D84A4A;
+  --dark_blue: #425966;
+  --light_blue: #C2E3F3;
+  --blue: #6AA3C1;
+}

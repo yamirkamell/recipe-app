@@ -1,0 +1,162 @@
+@mixin flexBox ($dis, $direction, $just, $align ) {
+  display: $dis;
+  flex-direction: $direction;
+  justify-content: $just;
+  align-items: $align;
+}
+
+@mixin flexCenterItems ($dis, $direction, $align ) {
+  display: $dis;
+  flex-direction: $direction;
+  align-items: $align;
+}
+
+@mixin fontSizeAndColor ($siz, $clr ) {
+  font-size: $siz;
+  color: $clr;
+}
+
+@mixin fontSizeAndType ($siz, $fontT ) {
+  font-size: $siz;
+  font-family: $fontT;
+}
+
+@mixin iPad() {
+  @media screen and (max-width: 768px ) {
+    @content;
+  }
+}
+
+@mixin mobile() {
+  @media screen and (max-width: 428px ) {
+    @content;
+  }
+}
+
+.container-home {
+  flex: 1;
+  background-color: var(--white);
+
+  .container-img {
+    background-image: url('../../assets/bcq.jpg');
+    height: 415px;
+    background-position: center;
+    background-size: cover;
+    @include iPad(){
+      height: 249px;
+    }
+    @include mobile(){
+      height: 234px;
+    }
+
+    .container-font{
+      @include iPad(){
+        top: 15%;
+        left: 15%; 
+      }
+      position: absolute;
+      top: 23%;
+      left: 20%; 
+      display: flex; 
+      flex-direction: column;
+      .span-title{
+        @include fontSizeAndColor( 74px, var(--white));
+        font-family: var(--font-poppins);
+        @include mobile(){
+          @include fontSizeAndColor( 51px, var(--white));
+        }
+      }
+      .span-subtitle{
+        @include fontSizeAndColor( 67px, var(--white));
+        margin-top: -50px;
+        @include mobile(){
+          @include fontSizeAndColor( 51px, var(--white));
+          margin-top: -35px;
+        }
+      }
+
+    }
+  }
+
+  .container-new-recipes {
+    margin-left: 70px; 
+    margin-right: 70px; 
+    margin-top: 25px;
+    margin-bottom: 85px;
+    height: 450px;
+    .span-new-recipes{
+      @include fontSizeAndColor( 54px, var(--red));
+    }
+    .container-slider-recipe{
+      display: flex;
+      flex-direction: row; 
+      overflow: auto; 
+      width: 100%;
+      .container-recipe{
+        @include flexCenterItems( flex, column, center);
+        background: transparent linear-gradient(180deg, #E9F1FA 0%, #FFFFFF 100%) 0% 0% no-repeat padding-box;
+        box-shadow: 0px 5px 9px #8395A766;
+        border-radius: 10px;
+        min-width: 265px;
+        min-height: 270px;
+        margin-top: 50px;
+        margin-right: 25px;
+        margin-bottom: 15px;
+        .container-all-recipe{
+          flex: 0.8;
+          .img-recipe{
+            margin-top: -53px;
+          }
+          .container-title-recipe{
+            width: 200px;
+            .span-title-name{
+              @include fontSizeAndColor( 30px, var(--red));
+              font-family: var(--font-poppins);
+            }
+            .span-title-lastname{
+              @include fontSizeAndColor( 30px, var(--red));
+            }
+          }
+          .container-details-recipe{
+            @include flexCenterItems( none, column, center);
+            margin-top: -15px;
+            width: 200px;
+            .container-details-items{
+              @include flexCenterItems( flex, column, center);
+              .span-details-title{
+                @include fontSizeAndColor( 17px, var(--red));
+              }
+              .span-details-subtitle{
+                @include fontSizeAndType( 17px, var(--font-poppins));
+              }
+            }
+          }
+          &:hover{
+            height: 335px;
+            .container-details-recipe{
+              display: flex;
+            }
+            .container-title-recipe{
+              display: none;
+            }
+            .container-basic{
+              display: none;
+            }
+          }
+        }
+        .container-basic{
+          @include flexBox( flex, row, space-between, center);
+          flex: 0.2; 
+          width: 90%;
+          .span-points{
+            @include fontSizeAndType( 26px, var(--font-poppins));
+            margin-left: 5px;
+          }
+        }
+      }
+  }
+  }
+  
+  
+}
+

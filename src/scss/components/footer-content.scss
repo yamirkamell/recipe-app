@@ -24,7 +24,6 @@
 
 .container-footer {
   @include flexCenterItems( flex, center);
-  bottom: 23px;
   width: 100%;
   
   .container-items{

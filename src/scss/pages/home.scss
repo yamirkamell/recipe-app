@@ -21,6 +21,12 @@
   font-family: $fontT;
 }
 
+@mixin portatil() {
+  @media screen and (min-width: 768px ) {
+    @content;
+  }
+}
+
 @mixin iPad() {
   @media screen and (max-width: 768px ) {
     @content;
@@ -139,6 +145,7 @@
           min-width: 180px;
           min-height: 172px;
         }
+        @include portatil(){
         &:hover{
           height: 335px;
           .container-all-recipe{
@@ -152,6 +159,7 @@
           .container-basic{
             display: none;
           }
+        }
         }
         .container-all-recipe{
           flex: 0.8;

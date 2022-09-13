@@ -51,7 +51,7 @@
 
     .container-font{
       @include iPad(){
-        top: 15%;
+        top: 12%;
         left: 15%; 
       }
       position: absolute;
@@ -78,12 +78,45 @@
     }
   }
 
+  .container-menu-principal{
+    display: none;
+    @include iPad(){
+      @include flexCenterItems( flex, row, center);
+      margin-left: 35px; 
+      margin-right: 35px; 
+      margin-top: -30px;
+      width: 90%;
+      overflow: auto;
+    }
+    @include mobile(){
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .container-item-menu{
+    @include flexBox( flex, column, space-evenly, center);
+      background: transparent linear-gradient(180deg, #E9F1FA 0%, #FFFFFF 100%) 0% 0% no-repeat padding-box;
+      box-shadow: 0px 5px 9px #8395A766;
+      border-radius: 10px;
+      margin-right: 13px;
+      min-width: 104px;
+      margin-bottom: 15px;
+      min-height: 85px;
+      span {
+        @include fontSizeAndColor( 13px, var(--dark_blue));
+        font-family: var(--font-poppins);
+      }
+    }
+  }
   .container-new-recipes {
     margin-left: 70px; 
     margin-right: 70px; 
     margin-top: 25px;
     margin-bottom: 85px;
     height: 450px;
+    @include mobile(){
+      margin-top: 5px;
+      margin-bottom: 0px;
+    }
     .span-new-recipes{
       @include fontSizeAndColor( 54px, var(--red));
     }
@@ -102,24 +135,59 @@
         margin-top: 50px;
         margin-right: 25px;
         margin-bottom: 15px;
+        @include mobile(){
+          min-width: 180px;
+          min-height: 172px;
+        }
+        &:hover{
+          height: 335px;
+          .container-all-recipe{
+            .container-details-recipe{
+              display: flex;
+            }
+          }
+          .container-title-recipe{
+            display: none;
+          }
+          .container-basic{
+            display: none;
+          }
+        }
         .container-all-recipe{
           flex: 0.8;
           .img-recipe{
+            margin-left: 45px;
+            width: 104px;
+            height: 98px;
+            border-radius: 70px;
             margin-top: -53px;
+            @include mobile(){
+              margin-left: 30px;
+              width: 80px;
+              height: 80px;
+            }
           }
           .container-title-recipe{
+            @include mobile(){
+              width: 150px;
+            }
             width: 200px;
             .span-title-name{
-              @include fontSizeAndColor( 30px, var(--red));
+              @include mobile(){
+                @include fontSizeAndColor( 13px, var(--red));
+              }
+              @include fontSizeAndColor( 20px, var(--red));
               font-family: var(--font-poppins);
             }
             .span-title-lastname{
+              @include mobile(){
+                @include fontSizeAndColor( 20px, var(--red));
+              }
               @include fontSizeAndColor( 30px, var(--red));
             }
           }
           .container-details-recipe{
             @include flexCenterItems( none, column, center);
-            margin-top: -15px;
             width: 200px;
             .container-details-items{
               @include flexCenterItems( flex, column, center);
@@ -131,24 +199,22 @@
               }
             }
           }
-          &:hover{
-            height: 335px;
-            .container-details-recipe{
-              display: flex;
-            }
-            .container-title-recipe{
-              display: none;
-            }
-            .container-basic{
-              display: none;
-            }
-          }
         }
         .container-basic{
           @include flexBox( flex, row, space-between, center);
           flex: 0.2; 
           width: 90%;
+          
+          .icon-basic{
+            @include mobile(){
+              width: 16px;
+              height: 16px;
+            }
+          }
           .span-points{
+            @include mobile(){
+              @include fontSizeAndType( 17px, var(--font-poppins));
+            }
             @include fontSizeAndType( 26px, var(--font-poppins));
             margin-left: 5px;
           }
